@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ollama Spell Checker</title>
+    <style>
+      body { font: 14px/1.4 system-ui, sans-serif; min-width: 280px; padding: 12px; }
+      .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+      .status { font-size: 12px; }
+      button { padding: 6px 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; }
+      select, input[type="number"] { padding: 4px; }
+      .split { display: flex; gap: 8px; }
+      .muted { color: #666; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <h3>Ollama Spell Checker</h3>
+
+    <div class="row">
+      <button id="toggle">Loading…</button>
+      <span id="health" class="status">Checking Ollama…</span>
+    </div>
+
+    <div class="row">
+      <label for="model">Model</label>
+      <select id="model"></select>
+    </div>
+
+    <div class="row">
+      <label for="debounce">Debounce (ms)</label>
+      <input id="debounce" type="number" min="200" step="100" value="800" />
+    </div>
+
+    <div class="split">
+      <button id="autocorrect">Auto-correct active field</button>
+      <span class="muted">Applies to the focused textarea/input</span>
+    </div>
+
+    <script src="ollama_spell_popup.js"></script>
+  </body>
+</html>

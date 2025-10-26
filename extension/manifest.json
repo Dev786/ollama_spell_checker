@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Ollama Spell Checker",
+    "version": "2.0.0",
+    "description": "LLM-powered spell checker with inline suggestions, batch correction, and model picker.",
+    "permissions": ["storage"],
+    "host_permissions": ["http://localhost:8000/*"],
+    "background": {
+      "service_worker": "ollama_spell_background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["ollama_spell_content.js"],
+        "css": ["suggestions.css"]
+      }
+    ],
+    "action": {
+      "default_popup": "ollama_spell_popup.html",
+      "default_title": "Ollama Spell Checker"
+    }
+  }
+  
